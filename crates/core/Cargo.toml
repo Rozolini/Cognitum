@@ -1,0 +1,16 @@
+# Core primitives for the Cognitum distributed database.
+[package]
+name = "cognitum-core"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# Standard serialization framework.
+serde.workspace = true
+
+# Unique identifiers for cluster members.
+uuid = { version = "1.7", features = ["v4", "serde"] }
+
+# Ultra-fast, zero-copy serialization framework.
+# Used for high-performance Write-Ahead Log (WAL) and memory operations.
+rkyv = { version = "0.7", features = ["validation"] }

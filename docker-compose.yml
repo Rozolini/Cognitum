@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  node1:
+    build: .
+    environment:
+      - NODE_ID=node_1
+      - LISTEN_ADDR=0.0.0.0:50051
+    ports:
+      - "3001:3000"  # HTTP API
+      - "9001:9000"  # Prometheus Metrics
+    volumes:
+      - ./data:/app/data
+
+  node2:
+    build: .
+    environment:
+      - NODE_ID=node_2
+      - LISTEN_ADDR=0.0.0.0:50051
+    ports:
+      - "3002:3000"
+      - "9002:9000"
+    volumes:
+      - ./data:/app/data
+
+  node3:
+    build: .
+    environment:
+      - NODE_ID=node_3
+      - LISTEN_ADDR=0.0.0.0:50051
+    ports:
+      - "3003:3000"
+      - "9003:9000"
+    volumes:
+      - ./data:/app/data

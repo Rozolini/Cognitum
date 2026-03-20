@@ -1,0 +1,24 @@
+# Rust & Cargo
+/target/
+**/*.rs.bk
+
+# Data & Storage engine artifacts
+/data/
+*.bin
+*.jsonl
+
+# Test artifacts
+chaos_test_wal.bin
+test_bounded_loads_wal.bin
+test_zero_copy_wal.bin
+stress_test_wal.bin
+
+# IDE & Editor files
+.idea/
+*.iml
+.vscode/
+
+# Environment & OS
+.env
+.DS_Store
+Thumbs.db

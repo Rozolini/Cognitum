@@ -1,0 +1,20 @@
+syntax = "proto3";
+package cognitum;
+
+// Payload for CRDT state exchange between nodes.
+message SyncRequest {
+  string node_id = 1;
+  // Serialized LWWMap state (optimized via rkyv).
+  bytes payload = 2;
+}
+
+// Acknowledgment of state synchronization.
+message SyncResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// P2P memory synchronization service (Gossip/Anti-Entropy).
+service GossipService {
+  rpc SyncState (SyncRequest) returns (SyncResponse);
+}

@@ -1,0 +1,23 @@
+# Network and RPC layer for the Cognitum distributed database.
+[package]
+name = "cognitum-network"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# Core data structures and CRDT implementations.
+cognitum-core = { path = "../core" }
+
+# gRPC framework and Protocol Buffers serialization.
+tonic = "0.11"
+prost = "0.12"
+
+# Asynchronous runtime for network I/O.
+tokio.workspace = true
+
+# Binary serialization for CRDT payloads over gRPC.
+bincode = "1.3"
+
+[build-dependencies]
+# Tooling to compile .proto files into Rust code during build.
+tonic-build = "0.11"
